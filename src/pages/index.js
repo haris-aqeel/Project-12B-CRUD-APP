@@ -75,7 +75,7 @@ useEffect(() => {
         });
     })();
 
-  }, [data, isloading, isUpdating, isDeleting, alltodos]);
+  }, [data, isloading, isUpdating, isDeleting]);
 
 
 
