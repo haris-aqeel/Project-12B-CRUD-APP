@@ -70,7 +70,7 @@ useEffect(() => {
 
     (async () => {
 
-      ;await fetch(".netlify/functions/todos-read-all")
+      ;await fetch("/.netlify/functions/todos-read-all")
         .then((res) => res.json())
         .then((dataa) => {
             setalltodos(dataa);
