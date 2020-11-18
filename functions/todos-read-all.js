@@ -1,11 +1,12 @@
 const faunadb = require('faunadb');
 q = faunadb.query
 
+
+
 require("dotenv").config()
 
 
 exports.handler = async function(event, context) {
-
 
     try {
 
@@ -24,8 +25,11 @@ exports.handler = async function(event, context) {
           }
 
     } catch(error){
-        console.log(error)
-        return {statusCode: 400 , message: `Error in Read All ${error.toString()}`}
+
+        return {
+                statusCode: 400 ,
+                message: error.toString()
+            }
     }
 
 }

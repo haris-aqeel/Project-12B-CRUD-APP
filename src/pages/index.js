@@ -59,7 +59,7 @@ const useStyle = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyle();
   const [data, setData] = useState("");
-  const [alltodos, setalltodos] = useState();
+  const [alltodos, setalltodos] = useState([]);
   const [updateTodo, setUpdateTodo] = useState();
   const [isUpdating, setIsUpdating] = useState(false);
   const [isloading, setIsLoading] = useState(false);
@@ -67,15 +67,19 @@ export default function Home() {
 
 
 useEffect(() => {
+
     (async () => {
-      await fetch("/.netlify/functions/todos-read-all")
-        .then((res) => res.json())  
-        .then((data) => {
-            setalltodos(data);
-        });
+
+      ;await fetch(".netlify/functions/todos-read-all")
+        .then((res) => res.json())
+        .then((dataa) => {
+            setalltodos(dataa);
+     });
+
     })();
 
   }, [data, isloading, isUpdating, isDeleting]);
+
 
 
 
@@ -195,7 +199,7 @@ const handleDelete = (id) => {
                 >
                   <Box py={2} px={3}>
                     <Typography className={classes.content}>
-                      {todo.data.message}
+                      {todo?.data?.message}
                     </Typography>
                     <Box p={1}></Box>
                     <Button

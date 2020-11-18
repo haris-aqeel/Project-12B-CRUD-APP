@@ -5,7 +5,6 @@ const faunadb = require('faunadb'),
 
 
 exports.handler = async function(event, context) {
-console.log("sssssss")
     try{
 
     if (event.httpMethod != 'POST'){
